@@ -1,5 +1,4 @@
-FROM java
-MAINTAINER docker_maven docker_maven@email.com
-WORKDIR /ROOT
-CMD ["java", "-version"]
-ENTRYPOINT ["java", "-jar", "${project.build.finalName}.jar"]
+FROM jdk1.8
+VOLUME /tmp
+ADD pattern.jar pattern.jar
+ENTRYPOINT ["java","‐jar","/pattern.jar"]
