@@ -65,7 +65,7 @@
                     <!--相当于Dockerfile的ENTRYPOINT指令-->
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <!--是否跳过docker build-->
-                    <skipDockerBuild>true</skipDockerBuild>
+                    <!--<skipDockerBuild>true</skipDockerBuild>-->
                     <serverId>my-docker-registry</serverId>
                     <resources>
                         <resource>
