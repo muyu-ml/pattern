@@ -70,7 +70,7 @@
                             <include>${project.build.finalName}.jar</include>                                                    
                         </resource>
                     </resources>
-                    <dockerHost>http://hub.menglong.com:2375</dockerHost>
+                    <dockerHost>https://hub.menglong.com</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
