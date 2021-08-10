@@ -53,29 +53,30 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <build>
+        <finalName>eureka</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>0.4.13</version>
                 <configuration>
-                    <!--用于指定镜像名称-->
-                    <imageName>hub.menglong.com/library/${project.name}:${project.version}</imageName>
-                    <!--用于指定基础镜像，相当于Dockerfile中的FROM指令-->
+                    <imageName>hub.menglong.com/${project.artifactId}:${project.version}</imageName>
                     <baseImage>java</baseImage>
-                    <!--相当于Dockerfile的ENTRYPOINT指令-->
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <!--是否跳过docker build-->
-                    <!--<skipDockerBuild>true</skipDockerBuild>-->
-                    <serverId>my-docker-registry</serverId>
+                    <entryPoint>["java", "‐jar","/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <!--用于指定需要复制的根目录，${project.build.directory}表示target目录-->
-                            <directory>${project.build.directory}</directory>
-                            <!--用于指定需要复制的文件。${project.build.finalName}.jar指的是打包后的jar包文件。-->
-                            <include>${project.build.finalName}.jar</include>
+                        <resource>                                                        
+                            <targetPath>/</targetPath>                                                        
+                            <directory>${project.build.directory}
+                            </directory>                                                       
+                            <include>${project.build.finalName}.jar</include>                                                    
                         </resource>
                     </resources>
+                    <dockerHost>http://hub.menglong.com:2375</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
