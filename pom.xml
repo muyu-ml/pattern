@@ -69,6 +69,7 @@
                     <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
                     <!--是否跳过docker build-->
                     <!--<skipDockerBuild>true</skipDockerBuild>-->
+                    <serverId>my-docker-registry</serverId>
                     <resources>
                         <resource>
                             <!--workdir 工作目录-->                            
@@ -79,7 +80,6 @@
                             <include>${project.build.finalName}.jar</include>                                        
                         </resource>
                     </resources>
-                    <dockerHost>http://192.168.124.21:2375</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
